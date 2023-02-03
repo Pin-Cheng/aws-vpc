@@ -2,7 +2,7 @@ resource "aws_vpc" "main" {
  cidr_block = "10.0.0.0/16"
  
  tags = {
-   Name = "Project VPC-1"
+   Name = "Project VPC Demo2"
  }
 }
 
@@ -13,7 +13,7 @@ resource "aws_subnet" "public_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Public Subnet-1 ${count.index + 1}"
+   Name = "Public Subnet Demo2 ${count.index + 1}"
  }
 }
  
@@ -24,7 +24,7 @@ resource "aws_subnet" "private_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Private Subnet-1 ${count.index + 1}"
+   Name = "Private Subnet Demo2 ${count.index + 1}"
  }
 }
 
