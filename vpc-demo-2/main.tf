@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
- cidr_block = "10.0.0.0/16"
+ cidr_block = "10.1.0.0/16"
  
  tags = {
    Name = "Project VPC Demo2"
@@ -13,7 +13,7 @@ resource "aws_subnet" "public_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Public Subnet Demo2 ${count.index + 1}"
+   Name = "Public Subnet Demo2-${count.index + 1}"
  }
 }
  
@@ -24,14 +24,14 @@ resource "aws_subnet" "private_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Private Subnet Demo2 ${count.index + 1}"
+   Name = "Private Subnet Demo2-${count.index + 1}"
  }
 }
 
-# resource "aws_internet_gateway" "gw" {
-#  vpc_id = aws_vpc.main.id
+resource "aws_internet_gateway" "gw" {
+ vpc_id = aws_vpc.main.id
  
-#  tags = {
-#    Name = "Project VPC IG"
-#  }
-# }
+ tags = {
+   Name = "Project VPC IGW Demo2"
+ }
+}
