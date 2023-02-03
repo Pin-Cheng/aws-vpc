@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
- cidr_block = "10.0.0.0/16"
+ cidr_block = "10.2.0.0/16"
  
  tags = {
    Name = "Project VPC Demo1"
@@ -25,5 +25,13 @@ resource "aws_subnet" "private_subnets" {
  
  tags = {
    Name = "Private Subnet-${count.index + 1}"
+ }
+}
+
+resource "aws_internet_gateway" "gw" {
+ vpc_id = aws_vpc.main.id
+ 
+ tags = {
+   Name = "Project VPC IGW Demo1"
  }
 }

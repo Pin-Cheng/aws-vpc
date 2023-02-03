@@ -28,10 +28,10 @@ resource "aws_subnet" "private_subnets" {
  }
 }
 
-# resource "aws_internet_gateway" "gw" {
-#  vpc_id = aws_vpc.main.id
+resource "aws_internet_gateway" "gw" {
+ vpc_id = aws_vpc.main.id
  
-#  tags = {
-#    Name = "Project VPC IG"
-#  }
-# }
+ tags = {
+   Name = "Project VPC IGW Demo2"
+ }
+}
