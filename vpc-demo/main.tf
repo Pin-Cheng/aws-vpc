@@ -2,17 +2,17 @@ terraform {
   backend "s3" {
     encrypt        = true
     bucket         = "terraform-state20230204014116915100000001"
-    key            = "vpc-demo-1/terraform.tfstate"
+    key            = "vpc-demo/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-locks"
   }
 }
 
 resource "aws_vpc" "main" {
- cidr_block = "10.2.0.0/16"
+ cidr_block = "10.1.0.0/16"
  
  tags = {
-   Name = "Project VPC Demo1"
+   Name = "Project VPC Demo"
  }
 }
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "public_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Public Subnet Demo1-${count.index + 1}"
+   Name = "Public Subnet Demo-${count.index + 1}"
  }
 }
  
@@ -34,14 +34,14 @@ resource "aws_subnet" "private_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Private Subnet-${count.index + 1}"
+   Name = "Private Subnet Demo-${count.index + 1}"
  }
 }
 
-resource "aws_internet_gateway" "gw" {
- vpc_id = aws_vpc.main.id
+# resource "aws_internet_gateway" "gw" {
+#  vpc_id = aws_vpc.main.id
  
- tags = {
-   Name = "Project VPC IGW Demo1"
- }
-}
+#  tags = {
+#    Name = "Project VPC IGW Demo"
+#  }
+# }

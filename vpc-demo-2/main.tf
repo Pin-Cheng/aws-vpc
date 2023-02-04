@@ -9,7 +9,7 @@ terraform {
 }
 
 resource "aws_vpc" "main" {
- cidr_block = "10.3.0.0/16"
+ cidr_block = "10.11.0.0/16"
  
  tags = {
    Name = "Project VPC Demo2"
@@ -38,10 +38,10 @@ resource "aws_subnet" "private_subnets" {
  }
 }
 
-resource "aws_internet_gateway" "gw" {
- vpc_id = aws_vpc.main.id
+# resource "aws_internet_gateway" "gw" {
+#  vpc_id = aws_vpc.main.id
  
- tags = {
-   Name = "Project VPC IGW Demo2"
- }
-}
+#  tags = {
+#    Name = "Project VPC IGW Demo2"
+#  }
+# }
