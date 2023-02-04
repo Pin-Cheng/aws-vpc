@@ -45,3 +45,6 @@ resource "aws_subnet" "private_subnets" {
 #    Name = "Project VPC IGW Demo"
 #  }
 # }
+
+resource "null_resource" "example" {
+}
