@@ -38,8 +38,8 @@ resource "aws_subnet" "private_subnets" {
  }
 }
 
-resource "null_resource" "example" {
-}
+# resource "null_resource" "example" {
+# }
 
 resource "aws_internet_gateway" "gw" {
  vpc_id = aws_vpc.main.id
