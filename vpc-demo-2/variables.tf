@@ -5,13 +5,13 @@ variable "region" {
 variable "public_subnet_cidrs" {
  type        = list(string)
  description = "Public Subnet CIDR values"
- default     = ["10.11.1.0/24", "10.11.2.0/24", "10.11.3.0/24"]
+ default     = ["10.2.1.0/24", "10.2.2.0/24", "10.2.3.0/24"]
 }
  
 variable "private_subnet_cidrs" {
  type        = list(string)
  description = "Private Subnet CIDR values"
- default     = ["10.11.4.0/24", "10.11.5.0/24", "10.11.6.0/24"]
+ default     = ["10.2.4.0/24", "10.2.5.0/24", "10.2.6.0/24"]
 }
 
 variable "azs" {
