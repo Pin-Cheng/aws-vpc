@@ -1,3 +1,13 @@
+terraform {
+  backend "s3" {
+    encrypt        = true
+    bucket         = "terraform-state20230204014116915100000001"
+    key            = "vpc-demo-2/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+  }
+}
+
 resource "aws_vpc" "main" {
  cidr_block = "10.1.0.0/16"
  
